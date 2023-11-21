@@ -171,8 +171,6 @@ spec:
       script: |
         #!/usr/bin/env sh
         set -eu
-        
-        echo "Hello from remote task"
 
         if [ "${PARAM_VERBOSE}" = "true" ] ; then
           set -x
@@ -184,6 +182,8 @@ spec:
           chmod 400 "${PARAM_USER_HOME}/.git-credentials"
           chmod 400 "${PARAM_USER_HOME}/.gitconfig"
         fi
+                
+        echo "Hello from remote task"
 
         if [ "${WORKSPACE_SSH_DIRECTORY_BOUND}" = "true" ] ; then
           cp -R "${WORKSPACE_SSH_DIRECTORY_PATH}" "${PARAM_USER_HOME}"/.ssh
